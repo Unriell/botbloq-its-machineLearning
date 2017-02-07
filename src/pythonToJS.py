@@ -54,6 +54,7 @@ def translator(filename):
 
 		indent_previus = n_indent
 	JS.close()
+	print "Python script translated to Javascript node-rules correctly"
 
 
 def selectGroup(array_groups):
