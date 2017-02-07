@@ -17,7 +17,7 @@ def decisionTree(clusters, filename):
 
 	clf = tree.DecisionTreeClassifier()
 	clf = clf.fit(X, Y)
-	names = ['Units', 'Problems', 'Steps', 'Corrects steps', 'Duration', 'Hints', 'Skills']
+	names = ['units', 'problems', 'steps', 'corrects_steps', 'duration', 'hints', 'skills']
 	with open('../results/graph.dot', 'w') as f:
 		f = tree.export_graphviz(clf, out_file=f,feature_names=names)
 
