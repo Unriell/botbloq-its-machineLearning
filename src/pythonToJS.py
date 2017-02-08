@@ -67,7 +67,7 @@ def selectGroup(array_groups):
 
 def createJS(array_condition, group):
 	conditions = ") && (this.".join(array_condition)
-	conditions = " && (this." + conditions + ")"
-	JS = "{\n\t\"condition\": function(R) {\n\t\tR.when(this" + conditions + ");\n\t},\n\n\t\"consequence\": function(R) {\n\t\tthis.group = " + str(group) + " ;\n\t\tR.stop();\n\t}\n}"
+	conditions = "(this." + conditions + ")"
+	JS = "{\n\t\"condition\": function(R) {\n\t\tR.when(" + conditions + ");\n\t},\n\n\t\"consequence\": function(R) {\n\t\tthis.group = "  + str(group) + ";\n\t\tR.stop();\n\t}\n}"
 	return JS
 
