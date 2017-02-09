@@ -11,8 +11,8 @@ def translator(filename):
 	consequence = ""
 	indent_previus = 0
 	group = 1
-	JS = open("../results/array_conditions.js", 'w')
-	JS.write("exports.rules = [")
+	JSON = open("../results/rules.json", 'w')
+	JSON.write("[")
 	for row in rows:
 		splitted_row = row.split(" ")
 		
@@ -48,12 +48,12 @@ def translator(filename):
 			group = selectGroup(array_groups)
 			
 			if(rows.index(row) == len(rows)-1):
-				JS.write(createJS(array_condition,group)+ "];")
+				JSON.write(createJSON(array_condition,group)+ "]")
 			else:
-				JS.write(createJS(array_condition,group)+ ",")
+				JSON.write(createJSON(array_condition,group)+ ",")
 
 		indent_previus = n_indent
-	JS.close()
+	JSON.close()
 	print "Python script translated to Javascript node-rules correctly"
 
 
@@ -65,9 +65,9 @@ def selectGroup(array_groups):
 
 	return group
 
-def createJS(array_condition, group):
+def createJSON(array_condition, group):
 	conditions = ") && (this.".join(array_condition)
 	conditions = "(this." + conditions + ")"
-	JS = "{\n\t\"condition\": function(R) {\n\t\tR.when(" + conditions + ");\n\t},\n\n\t\"consequence\": function(R) {\n\t\tthis.group = "  + str(group) + ";\n\t\tR.stop();\n\t}\n}"
-	return JS
+	JSON = "{\n\t\"condition\": \"function(R) {   R.when(" + conditions + ");   }\",\n\n\t\"consequence\": \"function(R) {   this.group = "  + str(group) + ";   R.stop();   }\"\n}"
+	return JSON
 

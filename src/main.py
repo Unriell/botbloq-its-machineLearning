@@ -3,7 +3,7 @@ from decisionTree import decisionTree
 from clustering import clustering
 import sqlite3
 from createDataCard import createTable, insertValuesInTable, createDataCard
-from pythonToJS import translator
+from pythonToJSON import translator
 
 con = sqlite3.connect('../data/database')
 print "The database opened successfully"
@@ -23,6 +23,6 @@ cursor = con.cursor()
 #decisionTree(clusters, filename)			# The decision tree is made from the clusters obtained 
 											# and is translated to a python script
 
-translator("../results/python_tree.txt")	# the python script in translated to javascript node-rules
+translator("../results/python_tree.txt")	# the python script in translated to json node-rules
 
 con.close()
