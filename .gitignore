@@ -88,5 +88,8 @@ ENV/
 # Rope project settings
 .ropeproject
 
-/results/*
+/results/graph*
+/results/python_tree.txt
+/results/rules.json
+/results/solutions.txt
 /data/algebra_2005_2006_train.txt
