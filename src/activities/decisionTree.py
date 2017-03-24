@@ -17,14 +17,14 @@ def decisionTree(clusters, filename):
 
 	clf = tree.DecisionTreeClassifier()
 	clf = clf.fit(X, Y)
-	names = ['units', 'problems', 'steps', 'corrects_steps', 'duration', 'hints', 'skills']
-	with open('../results/graph.dot', 'w') as f:
+	names = ['students','corrects_steps', 'duration', 'hints', 'skills']
+	with open('../../results/graph.dot', 'w') as f:
 		f = tree.export_graphviz(clf, out_file=f,feature_names=names)
 
-	graphs = pydot.graph_from_dot_file('../results/graph.dot')
+	graphs = pydot.graph_from_dot_file('../../results/graph.dot')
 	print("Tree .dot file created correctly")
 
-	graphs[0].write_pdf('../results/graph.pdf')
+	graphs[0].write_pdf('../../results/graph.pdf')
 	print("Tree .pdf file created correctly")
 
 	tree_to_code(clf, names)
@@ -39,7 +39,7 @@ def tree_to_code(tree, feature_names):
 		feature_names[i] if i != _tree.TREE_UNDEFINED else "undefined!"
 		for i in tree_.feature
 	]
-	file_write = open("../results/python_tree.txt", 'w')
+	file_write = open("../../results/python_tree.txt", 'w')
 	file_write.write("def tree({}):\n".format(", ".join(feature_names)))
 
 	def recurse(node, depth, file):

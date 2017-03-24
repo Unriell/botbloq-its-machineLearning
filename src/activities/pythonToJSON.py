@@ -11,7 +11,7 @@ def translator(filename):
 	consequence = ""
 	indent_previus = 0
 	group = 1
-	JSON = open("../results/rules.json", 'w')
+	JSON = open("../../results/rules.json", 'w')
 	JSON.write("[")
 	for row in rows:
 		splitted_row = row.split(" ")
@@ -32,7 +32,7 @@ def translator(filename):
 		# If the first word in the list is "else:" delete the previous conditions 
 		# of greater or equal indentation and store the condition corresponding to the "else"
 		elif splitted_row[0] == 'else:':
-			for i in range(indent_previus - n_indent):
+			for i in range(int(indent_previus - n_indent)):
 				n = len(array_condition)-1
 				array_condition.pop(n)
 

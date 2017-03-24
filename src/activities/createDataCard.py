@@ -90,8 +90,9 @@ def createDataCard(cursor):
 		activity.append(str(averageSkills))
 
 		activities.append(activity) 
-		file_write.write("\t".join(activity) + "\n")
-		cont+= 1
+		if(averageDuration > 20 and averageStudents != 1 and percentStepsCorrect < 100):
+			file_write.write("\t".join(activity) + "\n")
+			cont+= 1
 	print(cont)
 
 
