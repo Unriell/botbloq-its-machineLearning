@@ -35,7 +35,7 @@ def createTable(cursor):
 """
 def insertValuesInTable(con):
 	cursor = con.cursor()
-	file = open("../data/algebra_2005_2006_train.txt")
+	file = open("../../data/algebra_2005_2006_train.txt")
 	file_read = file.read()
 	txt_rows = file_read.split("\n")[1:]
 	file.close()
@@ -69,7 +69,7 @@ def obtainSkills(skills):
 """
 def createDataCard(cursor):
 	cursor.execute("SELECT ID_STUDENT, COUNT(DISTINCT(UNIT)), COUNT(DISTINCT(PROBLEM)), COUNT(STEP), SUM(CORRECT_FIRST_STEP), SUM(STEP_DURATION), SUM(HINTS) FROM STUDENTS GROUP BY ID_STUDENT")
-	filename = "../data/dataCard.txt"
+	filename = "../../data/dataCard.txt"
 	file_write = open(filename, 'w')
 	students = []
 	for i in cursor:
