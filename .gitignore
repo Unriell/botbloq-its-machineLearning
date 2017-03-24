@@ -93,3 +93,4 @@ ENV/
 /results/rules.json
 /results/solutions.txt
 /data/algebra_2005_2006_train.txt
+/data/database
