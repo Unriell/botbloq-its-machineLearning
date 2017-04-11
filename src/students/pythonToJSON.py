@@ -11,7 +11,7 @@ def translator(filename):
 	consequence = ""
 	indent_previus = 0
 	group = 1
-	JSON = open("../results/rules.json", 'w')
+	JSON = open("../../results/rules.json", 'w')
 	JSON.write("[")
 	for row in rows:
 		splitted_row = row.split(" ")

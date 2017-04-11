@@ -10,19 +10,20 @@ print "The database opened successfully"
 
 cursor = con.cursor()
 
-createTable(cursor) 						# Create a table into database
+#createTable(cursor) 						# Create a table into database
 
-insertValuesInTable(con) 					# insert all the valid values of the initial file in the table
+#insertValuesInTable(con) 					# insert all the valid values of the initial file in the table
 
-filename = createDataCard(cursor) 			# The data card is created using the data of the bd 
-#filename = "../../data/dataCard.txt"
+#filename = createDataCard(cursor) 			# The data card is created using the data of the bd 
+filename = "../../data/dataCard.txt"
+
 clusters = hierCluster(filename)			# Normalization and hierarchical clustering are performed
 
 #clustering(clusters, filename)				# A file is created with a solution to hierarchical clustering
 
-#decisionTree(clusters, filename)			# The decision tree is made from the clusters obtained 
+decisionTree(clusters, filename)			# The decision tree is made from the clusters obtained 
 											# and is translated to a python script
 
-#translator("../results/python_tree.txt")	# the python script in translated to json node-rules
+translator("../../results/python_tree.txt")	# the python script in translated to json node-rules
 
 con.close()
